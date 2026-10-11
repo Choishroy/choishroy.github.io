@@ -122,6 +122,29 @@
   .paper .tag { color: var(--gold); }
   .paper .plinks { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12.5px; color: var(--muted); }
 
+  /* ---------- Featured research ---------- */
+  .feature {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 24px 0 28px;
+    border-top: 1px solid var(--line);
+  }
+  .papers-head + .feature { border-top: 1.5px solid var(--line-strong); }
+  .feature .meta { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .feature .meta .role { display: block; color: var(--gold); font-weight: 500; }
+  .feature .meta .area { display: inline-block; margin-top: 10px; padding: 2px 8px; border: 1px solid var(--gold); color: var(--gold); font-size: 11px; letter-spacing: .06em; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+  .feature .summary { margin: 0; }
+  .feature .figs { grid-column: 1 / -1; margin-top: 4px; }
+  .fig { margin: 0 0 14px; }
+  .fig:last-child { margin-bottom: 0; }
+  .fig a { display: block; border: 0; }
+  .fig img { display: block; width: 100%; height: auto; border: 1px solid #ececec; background: #fff; }
+  .fig.narrow img { max-width: 560px; }
+  .fig figcaption { margin-top: 6px; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+  .fig figcaption b { color: var(--gold); font-weight: 500; margin-right: 4px; }
+
   footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; }
 
   /* ---------- Responsive ---------- */
@@ -136,7 +159,9 @@
     .tagline { font-size: 10.5px; letter-spacing: .1em; line-height: 1.6; }
     .facts { grid-template-columns: 64px 1fr; }
     .facts .wide { grid-column: auto; }
-    section.block, .paper { grid-template-columns: 1fr; gap: 10px; }
+    section.block, .paper, .feature { grid-template-columns: 1fr; gap: 10px; }
+    .feature .meta .role { display: inline; margin-left: 6px; }
+    .feature .meta .area { margin: 0 0 0 8px; }
     .row, .projects .row { grid-template-columns: 1fr; gap: 0; }
     .projects .org { text-align: left; }
     .paper .meta .role { display: inline; margin-left: 6px; }
@@ -149,7 +174,7 @@
     body { background: #fff; }
     .page { margin: 0; padding: 0; box-shadow: none; max-width: none; }
     a { border: 0; }
-    .paper, .row { break-inside: avoid; }
+    .paper, .row, .fig { break-inside: avoid; }
     .papers-head { break-before: page; margin-top: 0; }
   }
 </style>
@@ -237,6 +262,79 @@
       <div class="row"><div class="when">2022.03–2023.02</div><div class="what">대립적 딥 러닝 학습을 통한 암 환자의 생존 정보 추정 인공신경망 모델 개발</div><div class="org">과기정통부 · 참여연구원</div></div>
     </div>
   </section>
+
+  <div class="papers-head" id="featured">
+    <h2>대표 연구</h2>
+    <p>논문 Figure로 보는 주요 연구</p>
+  </div>
+
+  <article class="feature">
+    <div class="meta">arXiv 2026.10<br>ICRA 2027 심사 중<span class="role">제2저자</span><span class="area">PHYSICAL AI</span></div>
+    <div>
+      <h3>Geometry-First Visual Distillation for Zero-Shot Humanoid Obstacle Avoidance</h3>
+      <p class="summary">기하 정보로 학습한 장애물 인지 보행 정책을 RGB 시각 정책으로 증류해, 실제 데이터 없이 Unitree G1이 시각 입력만으로 장애물을 피해 걷도록 했습니다.</p>
+    </div>
+    <div class="figs">
+      <figure class="fig">
+        <a href="assets/figures/geo_overview.jpg"><img src="assets/figures/geo_overview.jpg" alt="Geometry-first visual distillation 개요" loading="lazy"></a>
+        <figcaption><b>Fig. 1</b>시뮬레이션에서 높이 지도 기반 교사 정책을 RGB 학생 정책으로 증류하고, 추가 학습 없이 실제 휴머노이드에 배포</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="meta">arXiv 2026.09<span class="role">제2저자</span><span class="area">EFFICIENT VLA</span></div>
+    <div>
+      <h3>Recovering Aggressively Pruned Vision-Language-Action Models with Offline Hidden-State Distillation</h3>
+      <p class="summary">구조적 pruning으로 크게 줄인 VLA를 교사의 hidden state 증류로 약 8 GPU시간 만에 복구하고, 72% 압축 모델을 실제 로봇 팔에서 교사보다 2.23배 빠르게 구동했습니다.</p>
+    </div>
+    <div class="figs">
+      <figure class="fig">
+        <a href="assets/figures/vla_method.jpg"><img src="assets/figures/vla_method.jpg" alt="Pruned VLA hidden-state distillation 방법 개요" loading="lazy"></a>
+        <figcaption><b>Fig. 1</b>폭(width) pruning한 언어 백본(학생)이 캐시된 교사의 hidden state를 따라가도록 학습 (OpenVLA-OFT · CogACT)</figcaption>
+      </figure>
+      <figure class="fig narrow">
+        <a href="assets/figures/vla_rollout.jpg"><img src="assets/figures/vla_rollout.jpg" alt="PiPER 로봇 팔 실기 수행 장면" loading="lazy"></a>
+        <figcaption><b>Fig. 5</b>72% 압축 학생 모델이 PiPER 6축 로봇 팔에서 장기(long-horizon) 과제를 수행하는 장면</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="meta">IEEE Access 2026<br>CVPR 2026 Workshop<span class="role">제1저자</span><span class="area">3D VISION</span></div>
+    <div>
+      <h3>Volumetric Plane-Based Gaussian Selection for Internal View Synthesis with 3D Gaussian Splatting</h3>
+      <p class="summary">평면 근방의 Gaussian만 골라 렌더링·학습해, 표면 위주로 설계된 3DGS 계열 모델이 CT/MRI 볼륨의 내부 단면을 새로운 위치와 각도에서 합성하도록 했습니다.</p>
+    </div>
+    <div class="figs">
+      <figure class="fig">
+        <a href="assets/figures/gsir_pipeline.jpg"><img src="assets/figures/gsir_pipeline.jpg" alt="GS-IR 파이프라인" loading="lazy"></a>
+        <figcaption><b>Fig. 1</b>가상 카메라 초기화 → 평면 마스크 계산 → 평면 근방 Gaussian만 렌더링·최적화하는 GS-IR 파이프라인</figcaption>
+      </figure>
+      <figure class="fig">
+        <a href="assets/figures/gsir_results.jpg"><img src="assets/figures/gsir_results.jpg" alt="KiTS23 CT 내부 단면 합성 결과 비교" loading="lazy"></a>
+        <figcaption><b>Fig. 2</b>KiTS23(CT) 내부 단면 합성 비교. 3DGS · 2DGS · Mip-Splatting 모두 -IR 적용 시 PSNR/SSIM 향상</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="meta">IEEE Access 2024<span class="role">제1저자</span><span class="area">3D SEGMENTATION</span></div>
+    <div>
+      <h3>OrgUNETR: Utilizing Organ Information and Squeeze and Excitation Block for Improved Tumor Segmentation</h3>
+      <p class="summary">장기와 종양을 함께 예측하고 self-attention을 SE 블록으로 바꿔, UNETR 대비 종양 Dice를 KiTS19에서 40.86%, Prostate158에서 32.69% 높이고 연산 비용을 13.9% 줄였습니다.</p>
+    </div>
+    <div class="figs">
+      <figure class="fig">
+        <a href="assets/figures/orgunetr_arch.jpg"><img src="assets/figures/orgunetr_arch.jpg" alt="OrgUNETR 구조" loading="lazy"></a>
+        <figcaption><b>Fig. 1</b>SE 블록 인코더와 장기·종양 2채널 출력을 가진 OrgUNETR 구조</figcaption>
+      </figure>
+      <figure class="fig narrow">
+        <a href="assets/figures/orgunetr_pred.jpg"><img src="assets/figures/orgunetr_pred.jpg" alt="KiTS19 종양 예측 비교" loading="lazy"></a>
+        <figcaption><b>Fig. 4</b>KiTS19 종양 예측 비교 (GT · OrgUNETR · Baseline). Baseline은 반대쪽 신장에 없는 종양을 예측</figcaption>
+      </figure>
+    </div>
+  </article>
 
   <div class="papers-head" id="papers">
     <h2>논문별 연구 및 기술 역량</h2>
