@@ -1,1 +1,368 @@
-Hello World! This is homepage of Choi Sanghyuk Roy
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>최상혁 · Sanghyuk Roy Choi</title>
+<meta name="description" content="AI Researcher · 3D Vision · Multimodal AI · Efficient Adaptation · Physical AI">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --body: #333;
+    --muted: #8a8a8a;
+    --line: #d9d9d9;
+    --line-strong: #1a1a1a;
+    --gold: #a27a2e;
+    --paper: #ffffff;
+    --bg: #f3f2ef;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--body);
+    font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+  a:hover { color: var(--gold); border-color: var(--gold); }
+
+  .page {
+    max-width: 920px;
+    margin: 40px auto;
+    background: var(--paper);
+    padding: 64px clamp(32px, 7vw, 72px) 56px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 32px rgba(0,0,0,.05);
+  }
+
+  /* ---------- Header ---------- */
+  header.top {
+    display: grid;
+    grid-template-columns: 1fr 132px;
+    gap: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1.5px solid var(--line-strong);
+  }
+  .name { margin: 0; font-size: 46px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; }
+  .name span { font-size: 28px; font-weight: 300; margin-left: 10px; letter-spacing: 0; }
+  .tagline {
+    margin: 10px 0 26px;
+    color: var(--gold);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: 64px 1fr 56px 1fr;
+    gap: 6px 16px;
+    margin: 0;
+    font-size: 13.5px;
+  }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; color: var(--ink); }
+  .facts .wide { grid-column: span 3; }
+  .photo { width: 132px; height: 170px; object-fit: cover; border: 1px solid var(--line); }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 18px; font-size: 13px; }
+
+  /* ---------- Sections ---------- */
+  section.block {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section.block > h2 { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); }
+  section.block > h2 small { display: block; font-size: 12.5px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+  .intro { margin: 0; }
+
+  .rows { display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 112px 1fr; gap: 20px; }
+  .row .when { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .row .what { color: var(--ink); font-weight: 600; }
+  .row .what .note { font-weight: 400; color: var(--muted); }
+  .row ul { margin: 6px 0 0; padding: 0; list-style: none; font-weight: 400; color: var(--body); }
+  .row li { position: relative; padding-left: 18px; }
+  .row li::before { content: "–"; position: absolute; left: 0; color: var(--gold); }
+
+  .skills .what { font-weight: 500; }
+
+  .projects .row { grid-template-columns: 112px 1fr auto; gap: 16px; padding-bottom: 10px; border-bottom: 1px dashed #ececec; }
+  .projects .row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .projects .what { font-weight: 500; }
+  .projects .org { color: var(--muted); font-size: 13px; text-align: right; white-space: nowrap; }
+
+  /* ---------- Papers ---------- */
+  .papers-head { margin: 52px 0 6px; }
+  .papers-head h2 { margin: 0; font-size: 30px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .papers-head p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+  .paper {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  .papers-head + .paper { border-top: 1.5px solid var(--line-strong); }
+  .paper .meta { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .paper .meta .role { display: block; color: var(--gold); font-weight: 500; }
+  .paper .meta .cite-n { display: block; margin-top: 10px; font-size: 26px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .paper .meta .cite-l { display: block; font-size: 12px; }
+  .paper h3 { margin: 0 0 6px; font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+  .paper p { margin: 0 0 8px; text-align: justify; }
+  .paper p:last-child { margin-bottom: 0; }
+  .paper b { color: var(--ink); font-weight: 600; }
+  .paper .ref em { font-style: italic; }
+  .paper .tag { color: var(--gold); }
+  .paper .plinks { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12.5px; color: var(--muted); }
+
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 14px; }
+    .page { margin: 0; padding: 32px 16px 28px; box-shadow: none; }
+    header.top { display: block; position: relative; }
+    .photo { position: absolute; top: 0; right: 0; width: 80px; height: 104px; }
+    .name, .tagline { padding-right: 96px; }
+    .name { font-size: 34px; }
+    .name span { display: block; margin: 2px 0 0; font-size: 20px; }
+    .tagline { font-size: 10.5px; letter-spacing: .1em; line-height: 1.6; }
+    .facts { grid-template-columns: 64px 1fr; }
+    .facts .wide { grid-column: auto; }
+    section.block, .paper { grid-template-columns: 1fr; gap: 10px; }
+    .row, .projects .row { grid-template-columns: 1fr; gap: 0; }
+    .projects .org { text-align: left; }
+    .paper .meta .role { display: inline; margin-left: 6px; }
+    .paper .meta .cite-n { display: inline; font-size: 15px; margin: 0 0 0 8px; }
+    .paper .meta .cite-l { display: inline; margin-left: 4px; }
+    .paper p { text-align: left; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    a { border: 0; }
+    .paper, .row { break-inside: avoid; }
+    .papers-head { break-before: page; margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="top">
+    <div>
+      <h1 class="name">최상혁<span>Sanghyuk Roy Choi</span></h1>
+      <p class="tagline">AI Researcher · 3D Vision · Multimodal AI · Efficient Adaptation · Physical AI</p>
+      <dl class="facts">
+        <dt>소속</dt><dd>중앙대학교 지능형반도체공학과<br>석·박사 통합과정 (수료)</dd>
+        <dt>학위</dt><dd>2027년 2월 박사 학위 취득 예정</dd>
+        <dt>입사 가능</dt><dd>2027년 2월</dd>
+        <dt>병역</dt><dd>필</dd>
+        <dt>국적</dt><dd class="wide">대한민국 · 미국 이중국적 (미국 출장 시 비자 스폰서 불필요)</dd>
+      </dl>
+      <div class="links">
+        <a href="https://github.com/Choishroy">GitHub · Choishroy</a>
+      </div>
+    </div>
+    <img class="photo" src="assets/profile.jpg" alt="최상혁 프로필 사진">
+  </header>
+
+  <section class="block">
+    <h2>소개글</h2>
+    <p class="intro">기존 모델을 새로운 데이터에 적용할 때 발생하는 문제를 분석하고, 필요한 경우 학습 구조나 데이터 처리 방식을 수정하는 연구를 해 왔습니다. 최근에는 VLA 모델을 경량화해 6축 로봇 팔에서 검증했고, 휴머노이드 Unitree G1의 시각 기반 장애물 회피 보행 실험을 함께 수행했습니다.</p>
+  </section>
+
+  <section class="block">
+    <h2>연구 경력</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2022.03–현재</div>
+        <div class="what">중앙대학교 생성적 인공지능 연구실(GAIL) · 대학원 연구조교
+          <ul>
+            <li>국가·산학 연구과제 9건 참여</li>
+            <li>중앙대학교 대학원 장학생 선발. 6학기 등록금 면제</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2021.04–2022.02</div>
+        <div class="what">중앙대학교 생성적 인공지능 연구실 · 학부 연구생</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>학력</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2022.03–2027.02</div>
+        <div class="what">중앙대학교 지능형반도체공학과 · 석/박사 통합과정 <span class="note">(2027.02 박사 학위 취득 예정)</span></div>
+      </div>
+      <div class="row">
+        <div class="when">2015.03–2022.02</div>
+        <div class="what">중앙대학교 창의ICT공과대학 전자전기공학부 · 학사</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block skills">
+    <h2>기술</h2>
+    <div class="rows">
+      <div class="row"><div class="when">3D / Vision</div><div class="what">3D Gaussian Splatting, NeRF, differentiable rendering, 3D segmentation(UNETR), CT/MRI·DICOM</div></div>
+      <div class="row"><div class="when">Multimodal / Adaptation</div><div class="what">Transformer·attention, multi-omics, VLM/VLA, transfer learning, knowledge distillation</div></div>
+      <div class="row"><div class="when">Physical AI</div><div class="what">VLA 기반 로봇 팔 조작 실험(PiPER), 시각 기반 휴머노이드 보행·장애물 회피 실험(Unitree G1)</div></div>
+      <div class="row"><div class="when">Stack</div><div class="what">Python, C++, SQL · PyTorch, TensorFlow, MONAI · Linux, AWS</div></div>
+    </div>
+  </section>
+
+  <section class="block projects">
+    <h2>참여 연구과제<small>9건</small></h2>
+    <div class="rows">
+      <div class="row"><div class="when">2025.07–2026.12</div><div class="what">실험실 특화형 창업선도대학 연합형 2기 1차년도</div><div class="org">교육부·과기정통부 · 참여연구원</div></div>
+      <div class="row"><div class="when">2024.05–2027.03</div><div class="what">멀티모달 조건 입력이 가능한 생성형 뉴럴 렌더링 모델 개발 (1–3차)</div><div class="org">과기정통부 · 학생</div></div>
+      <div class="row"><div class="when">2024.01–2024.05</div><div class="what">조건 생성적 뉴럴 렌더링 인공신경망 모델 개발</div><div class="org">과기정통부 · 학생</div></div>
+      <div class="row"><div class="when">2023.12</div><div class="what">디지털 트윈 기반 스마트 에너지 시티 융합 기술 개발 및 인력양성 (2-2차)</div><div class="org">과기정통부 · 참여연구원</div></div>
+      <div class="row"><div class="when">2023.10–2024.01</div><div class="what">허위조작 콘텐츠 탐지를 위한 생성형 AI 기반 트러스트워시 분석 기술 적용방안 연구</div><div class="org">행정안전부 · 학생</div></div>
+      <div class="row"><div class="when">2023.09–2027.02</div><div class="what">BK21 지능형반도체 칩을 위한 융합형 창의인재양성 교육연구단 (3·4차)</div><div class="org">교육부 · 학생</div></div>
+      <div class="row"><div class="when">2023.05–2024.05</div><div class="what">딥 러닝 모델의 기저를 이루는 수학적 분석 알고리즘 개발에 관한 연구 제안</div><div class="org">산업체 · 학생</div></div>
+      <div class="row"><div class="when">2022.03–2024.02</div><div class="what">스마트센서 전문인력양성사업 (1·2차)</div><div class="org">산업통상부 · 참여연구원</div></div>
+      <div class="row"><div class="when">2022.03–2023.02</div><div class="what">대립적 딥 러닝 학습을 통한 암 환자의 생존 정보 추정 인공신경망 모델 개발</div><div class="org">과기정통부 · 참여연구원</div></div>
+    </div>
+  </section>
+
+  <div class="papers-head" id="papers">
+    <h2>논문별 연구 및 기술 역량</h2>
+    <p>최신순</p>
+  </div>
+
+  <article class="paper">
+    <div class="meta">arXiv 2026.10<br>ICRA 2027 심사 중<span class="role">제2저자</span></div>
+    <div>
+      <h3>Geometry-First Visual Distillation for Zero-Shot Humanoid Obstacle Avoidance</h3>
+      <p><b>연구 내용:</b> 장애물이 많은 환경에서 휴머노이드가 균형을 유지하며 이동하려면 보행과 장애물 회피를 함께 고려해야 합니다. RGB 영상으로 바로 강화학습을 하면 보행·장애물 회피·시각 grounding이 한 최적화에 얽히고, 탐색 내내 영상을 렌더링해야 해 비용이 큽니다. 기하 정보(geometry)를 먼저 학습한 장애물 인지 보행 정책을 교사로 두고 이를 시각 정책으로 증류하는 geometry-first 방식을 설계해, 시각 입력만으로 추가 학습 없이(zero-shot) 장애물을 피하는 보행을 Unitree G1 실기에서 검증했습니다. 저는 모델 파이프라인 구현, 실로봇 실험 설계·평가, 논문 그림 제작을 맡았습니다.</p>
+      <p><b>확보한 기술:</b> 휴머노이드 보행 정책의 시뮬레이션–실기 전이, 교사–학생 시각 증류 설계, 실로봇 실험 운영.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">arXiv 2026.09<span class="role">제2저자</span></div>
+    <div>
+      <h3>Recovering Aggressively Pruned Vision-Language-Action Models with Offline Hidden-State Distillation</h3>
+      <p><b>연구 내용:</b> VLA 모델의 언어 백본을 구조적 pruning으로 63% 줄이면 시뮬레이션 벤치마크(LIBERO-Long) 성공률이 거의 0으로 무너지고, 기존 복구 방법은 강화학습 롤아웃에 수백 GPU시간이 필요했습니다. 폭(width) pruning이 residual stream 크기를 유지한다는 점을 이용해 교사·학생의 hidden state를 projector 없이 직접 맞추는 오프라인 증류로 바꾸고, 교사를 한 번 통과시킨 캐시만으로 약 8 GPU시간 안에 성공률을 교사 수준 근처로 복구했습니다. 9개 압축 비율·두 백본에서 증류가 효과를 내는 지점을 찾고, 6축 로봇팔 실기에서는 72% 압축 모델이 교사보다 2.23배 빠르고 메모리를 62% 적게 쓰는 것을 확인했습니다.</p>
+      <p><b>확보한 기술:</b> 구조적 pruning 후 hidden-state 증류 학습 구현, 압축 비율별 성공률·지연시간 측정, 로봇 팔 온보드 배포와 실기 평가.</p>
+      <p><b>활용 가능성:</b> 연산·메모리가 제한된 로봇과 온디바이스 기기에 대형 멀티모달 모델을 올리는 작업.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">ICUFN 2026<span class="role">제1저자</span></div>
+    <div>
+      <h3>The Layer Transferability Profile: Mapping Feature Hierarchies in Pretrained Vision Models</h3>
+      <p><b>연구 내용:</b> 사전학습 비전 모델을 다른 과제에 적용할 때 각 층의 feature가 얼마나 전이되는지를 정량화한 ‘전이성 프로파일’을 만들고, 이를 바탕으로 동결할 층과 다시 학습할 층을 선택하는 방법을 연구했습니다.</p>
+      <p><b>확보한 기술:</b> 층별 전이성 측정 실험 설계와 분석, 부분 동결·parameter-efficient 학습 범위 결정.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">arXiv 2026<span class="role">공동저자</span></div>
+    <div>
+      <h3>CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model</h3>
+      <p><b>연구 내용:</b> 3–7B 규모 VLA는 GPU 메모리를 20 GB 이상 요구해 소형 로봇에 올리기 어렵고, 크기만 줄이면 언어 지시나 시각 교란에 대한 강건성이 떨어집니다. 이 연구에서는 35B 교사 모델이 만든 계획(Plan)·추론(Think) 라벨을 Qwen3.5-0.8B 기반 0.9B 학생 모델에 증류해, 학생이 행동(Action)을 내기 전에 계획과 추론을 먼저 출력하도록 학습했습니다. 입력은 3인칭·손목 카메라의 8프레임 이력과 로봇 관절 상태(proprioception), 지시문으로 구성했습니다. LIBERO-Plus 4개 suite에서 7B baseline 대비 각각 +4.7, +2.8, +15.9, +3.0점을 기록했고, 추론 메모리는 2.25 GB입니다. 저는 멀티모달 학습 파이프라인 구성과 로봇 조작 성능 평가를 공동으로 맡았습니다.</p>
+      <p><b>확보한 기술:</b> 시각·언어·행동 멀티모달 학습 파이프라인 구성, Chain-of-Thought 증류 학습, 로봇 조작 실험 설계.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">IEEE Access 2026<br>2026.09 Published<span class="role">제1저자</span></div>
+    <div>
+      <h3>Volumetric Plane-Based Gaussian Selection for Internal View Synthesis with 3D Gaussian Splatting</h3>
+      <p><b>연구 내용:</b> 아래 CVPR 2026 Workshop 논문을 확장한 저널판입니다. CVPR Workshop 논문에서 추가적인 Ablation Study도 수행하고 추가했습니다.</p>
+      <div class="plinks"><a href="https://github.com/Choishroy/GS-IR">Code · GS-IR</a></div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">CVPR 2026<br>Workshop on 3D4S<span class="role">제1저자</span></div>
+    <div>
+      <h3>Volumetric Plane-based Rendering: A Novel Approach for Internal View Synthesis in 3D Gaussian Splatting</h3>
+      <p><b>연구 내용:</b> 3DGS·2DGS·Mip-Splatting은 표면 위주의 일반적인 Scene을 기준으로 설계되어, CT/MRI 볼륨에 그대로 적용하면 외부 Gaussian만이 학습하게 되고 내부 구조가 표현되지 않았습니다. 정의된 내부 평면 근방의 Gaussian만 선택적으로 렌더링·학습하는 plane-based 방식을 설계해, 내부 단면을 새로운 위치와 각도에서 합성할 수 있게 했습니다. 세 backbone과 두 데이터셋(KiTS23·IXI) 모두에서 PSNR·SSIM이 개선되었고 재현 코드를 공개했습니다.</p>
+      <p><b>확보한 기술:</b> 3DGS 학습·렌더링 파이프라인 수정, 3D 볼륨용 데이터셋·카메라 궤적 구성, PSNR/SSIM/LPIPS 평가 체계 구축.</p>
+      <p><b>활용 가능성:</b> 멀티뷰 영상으로 3D Scene을 재구성(3D Reconstruction)하고 새로운 시점의 영상을 합성(Novel-View Synthesis)하는 3D Vision 전반. 로봇 작업 공간의 3D 복원, 내부 구조까지 재구성해야 하는 3D 모델 구축.</p>
+      <div class="plinks"><a href="https://github.com/Choishroy/GS-IR">Code · GS-IR</a></div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">ICAIIC 2025<span class="role">제1저자</span></div>
+    <div>
+      <h3>Rendering 3D CT Scans through 3D Gaussian Splatting Initialized with Points Sampled by Cube-Based Neural Radiance Fields</h3>
+      <p><b>연구 내용:</b> 3DGS는 카메라 영상의 SfM 알고리즘을 이용해 point cloud로 Gaussian들의 초기 위치를 잡는데, CT 볼륨에는 point cloud가 없어 학습을 시작할 수 없었습니다. 큐브 기반 NeRF를 먼저 학습해 밀도장에서 점을 샘플링하고 이를 초기 위치로 사용해, NeRF보다 빠르게 학습되고 실시간으로 렌더링되는 CT의 3DGS 표현을 만들었습니다. <span class="tag">CVPR 2026 Workshop, IEEE Access 2026 선행연구</span></p>
+      <p><b>확보한 기술:</b> 큐브 기반 NeRF 학습과 밀도장 점 샘플링 구현, CT 볼륨을 3DGS 학습 데이터로 바꾸는 전처리 파이프라인 구축.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">ICUFN 2025<span class="role">공동저자</span></div>
+    <div>
+      <p class="ref">S. Kim, <b>S. R. Choi</b>, S. J. Baek, C. Gu, D. Hwang, and M. Lee. “Adaptive Consensus Kernel Clustering for Manifold-Structured Data.” <em>ICUFN</em>, 2025.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">IEEE Access 2024<span class="role">제1저자</span></div>
+    <div>
+      <h3>OrgUNETR: Utilizing Organ Information and Squeeze and Excitation Block for Improved Tumor Segmentation</h3>
+      <p><b>연구 내용:</b> 종양은 CT에서 차지하는 부피에 비해 매우 작아 바로 찾으면 놓치거나 오탐이 많았고, UNETR의 self-attention은 3D 볼륨에서 연산량이 컸습니다. 종양이 항상 특정 장기 안에 있다는 점을 이용해 장기 위치 정보를 함께 학습하고 self-attention을 Squeeze-and-Excitation 블록으로 대체해, baseline 모델인 UNETR에 비해 KiTS19(신장 종양)·Prostate158(전립선 종양)의 Dice를 각각 40.86%, 32.69%(상대 향상) 높이고 연산 비용을 13.9% 줄였습니다.</p>
+      <p><b>확보한 기술:</b> 3D 분할 모델 구조 설계, 장기–종양 관계를 출력과 손실 함수에 반영, self-attention을 SE 블록으로 대체한 연산량 절감.</p>
+      <div class="plinks"><a href="https://doi.org/10.1109/ACCESS.2024.3413717">Paper</a><a href="https://github.com/Choishroy/OrgUNETR">Code · OrgUNETR</a></div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">ICAIIC 2024<span class="role">제1저자</span></div>
+    <div>
+      <p class="ref"><b>S. R. Choi</b>, K. Ko, S. J. Baek, S. Lee, J. Lee, and M. Lee. “Enhanced Kidney Tumor Segmentation in CT Scans Using a Simplified UNETR with Organ Information.” <em>ICAIIC</em>, 2024. <span class="tag">OrgUNETR 선행 연구</span></p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">Biology 2023<span class="role">제1저자</span><span class="cite-n">340+</span><span class="cite-l">Google Scholar 인용</span></div>
+    <div>
+      <h3>Transformer Architecture and Attention Mechanisms in Genome Data Analysis: A Comprehensive Review</h3>
+      <p><b>연구 내용:</b> 유전체 분석에 활용된 Transformer와 attention 구조를 긴 서열·고차원 희소 데이터·다중 오믹스 같은 데이터 특성과 연구 과제별로 분류하고, 각 방법의 장단점을 비교한 리뷰 논문입니다.</p>
+      <p><b>확보한 기술:</b> Transformer·attention 관련 문헌 조사와 분류 체계 설계.</p>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">Biology 2022<span class="role">제1저자</span></div>
+    <div>
+      <h3>Estimating the Prognosis of Low-Grade Glioma with Gene Attention Using Multi-Omics and Multi-Modal Schemes</h3>
+      <p><b>연구 내용:</b> 유전체 데이터는 샘플 수보다 유전자 수가 압도적으로 많아 쉽게 과적합되고, 예측이 맞아도 어떤 유전자가 영향이 큰 지를 설명하기 어려웠습니다. mRNA·miRNA 발현과 임상 정보를 함께 쓰는 멀티모달 구조에 유전자 단위 attention을 넣어 예후 예측 성능을 높이고, attention 가중치로 예후와 관련성이 높은 유전자를 분석했습니다.</p>
+      <p><b>확보한 기술:</b> mRNA·miRNA·임상 변수를 결합하는 멀티모달 모델 구현, 고차원·소표본 데이터의 과적합 제어, attention 가중치를 이용한 유전자 중요도 분석.</p>
+      <div class="plinks"><a href="https://doi.org/10.3390/biology11101462">Paper</a><a href="https://github.com/Choishroy/MultiPEN-Low-Grade-Glioma-Patient-Prognosis-Prediction">Code · MultiPEN</a></div>
+    </div>
+  </article>
+
+  <article class="paper">
+    <div class="meta">한국통신학회 2022<span class="role">제1저자</span></div>
+    <div>
+      <p class="ref"><b>S. R. Choi</b>, H. Ku, and M. Lee. “Attention-Based Residual Deep Learning for Low-Grade Glioma Survival Prediction Using mRNA and miRNA Expression Dataset.” <em>한국통신학회 동계종합학술발표회</em>, pp. 800–801, 2022.</p>
+    </div>
+  </article>
+
+  <footer>
+    <span>최상혁 · Sanghyuk Roy Choi</span>
+    <span>Last updated 2026.10</span>
+  </footer>
+</main>
+</body>
+</html>
